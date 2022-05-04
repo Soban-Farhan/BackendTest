@@ -11,10 +11,4 @@ load_dotenv()
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS')
 
 # Database settings
-DATABASE = {
-    "dbname": os.getenv('DATABASE_NAME'),
-    "user": os.getenv('DATABASE_USERNAME'),
-    "password": os.getenv('DATABASE_PASSWORD'),
-    "host": os.getenv('DATABASE_HOST'),
-    "port": os.getenv('DATABASE_PORT')
-}
+DATABASE = os.getenv('DATABASE_NAME')
