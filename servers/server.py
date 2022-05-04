@@ -1,6 +1,6 @@
 import json
 from http.server import BaseHTTPRequestHandler
-from recipes.urls import get_path, post_path
+from recipes.urls import get_path, post_path, put_patch_path
 
 
 class HttpHandler(BaseHTTPRequestHandler):
@@ -37,8 +37,18 @@ class HttpHandler(BaseHTTPRequestHandler):
         )
         self.respond(status_code, response)
 
-    do_PUT = do_POST
-    do_PATCH = do_POST
+    def do_PUT(self):
+        data_string = self.rfile.read(int(self.headers.get('Content-Length')))
+        data = json.loads(data_string)
+        status_code, response = put_patch_path(
+            path=self.path,
+            request_type=self.command,
+            authentication=self.headers.get('Authorization'),
+            data=data,
+        )
+        self.respond(status_code, response)
+
+    do_PATCH = do_PUT
 
     def handle_http(self, status_code, data):
         self.send_response(status_code)
