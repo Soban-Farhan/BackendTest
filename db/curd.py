@@ -2,7 +2,7 @@ from db.database_connection import conn, curr
 
 from settings.responses import *
 
-def fetch_all_recipes():
+def fetch_all_recipes_query():
 
     curr.execute(
         "SELECT recipes.id, name, pre_time, difficulty, vegetarian, ROUND(AVG(rating),2) "
@@ -39,7 +39,7 @@ def update_recipe_query(data):
 
 
 def delete_recipe_query(data):
-    recipes = fetch_all_recipes()
+    recipes = fetch_all_recipes_query()
     for recipe in recipes:
         if recipe['id'] == int(data['id']):
             curr.execute("DELETE FROM recipes where id=?", (data['id'],))
@@ -52,7 +52,7 @@ def delete_recipe_query(data):
 
 
 def recipe_rating_query(data):
-    recipes = fetch_all_recipes()
+    recipes = fetch_all_recipes_query()
     for recipe in recipes:
         if recipe['id'] == int(data['id']):
             curr.execute("INSERT INTO recipe_rating (recipe_id, rating) VALUES (?, ?)", (data['id'], data['rating']))
