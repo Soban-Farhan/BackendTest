@@ -30,8 +30,8 @@ def create_recipe_query(data):
 
 
 def update_recipe_query(data):
-    curr.execute("UPDATE recipes SET name=?, pre_time=?, difficulty=?, vegetarian=?, WHERE id=?",
-               (data['name'], data['pre_time'], data['difficulty'], data['vegetarian'], data['id']))
+    curr.execute("UPDATE recipes SET name=?, pre_time=?, difficulty=?, vegetarian=? WHERE id=?",
+                    (data['name'], data['pre_time'], data['difficulty'], data['vegetarian'], data['id']))
     conn.commit()
 
     status_code = 200
