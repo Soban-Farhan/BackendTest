@@ -6,7 +6,7 @@ def fetch_all_recipes_query():
 
     curr.execute(
         "SELECT recipes.id, name, pre_time, difficulty, vegetarian, ROUND(AVG(rating),2) "
-        "FROM recipes LEFT JOIN recipe_rating ON recipe_id=id GROUP BY recipes.id ORDER BY id ASC")
+        "FROM recipes LEFT JOIN recipe_rating ON recipe_id=recipes.id GROUP BY recipes.id ORDER BY recipes.id ASC")
 
     recipes = []
     for item in curr.fetchall():
