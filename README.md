@@ -16,7 +16,7 @@ pip install -r requirements.txt
 
 4. Run the following command to setup the Recipe and Recipe Rating table with mockdata avaiable in db folder. 
 The program will create a sqllite3 file in the same folder for database crud opertions
-```bash
+```code
 python db_table_creation.py
 ```
 
@@ -44,3 +44,57 @@ password: password
 If you want to change these credetials. Go to servers folder and open default_user.py file. Find `basic_auth_token()` function end of the `servers.default_user.py` and change username and password too
 
 7. The program should run and we should be good for grading the assignment. 
+
+## Postman url and body examples
+
+### LIST:
+```code
+URL: `http://localhost:5000/recipes`
+```
+
+### CREATE:
+```code
+URL: `http://localhost:5000/recipes`
+Body:
+{
+    "name": "Crab and chickpea vindaloo",
+    "pre_time": 6860,
+    "difficulty": 3,
+    "vegetarian": false
+}
+Authentication: Required
+```
+
+### GET:
+```code
+URL: `http://localhost:5000/recipes/{id}`
+```
+
+### UPDATE:
+```code
+URL: `http://localhost:5000/recipes/{id}`
+Body:
+{
+    "name": "Crab and Mashed potatoes",
+    "pre_time": 8034,
+    "difficulty": 2,
+    "vegetarian": false
+}
+Authentication: Required
+```
+
+### DELETE:
+```code
+URL: `http://localhost:5000/recipes/{id}`
+Authentication: Required
+```
+
+### RATE:
+```code
+URL: `http://localhost:5000/recipes/{id}/rating`
+Body:
+{
+    "recipe_id": 15,
+    "rating": 5
+}
+```
