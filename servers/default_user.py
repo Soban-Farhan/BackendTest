@@ -2,6 +2,7 @@ import base64
 
 class TestAPIUser:
 
+    # string property of TestAPIUser
     basic_token = ''
 
     def set_auth_token(self, username, password):
@@ -15,6 +16,7 @@ class TestAPIUser:
         """
         self.basic_token = base64.b64encode(
             bytes('%s:%s' % (username, password), 'utf-8')).decode('ascii')
+
 
     def get_auth_token(self):
         """

@@ -1,5 +1,4 @@
 import sqlite3
-
 from settings.settings import DATABASE
 
 # Connect to our sqllite db (Create if it doesn't exist)
