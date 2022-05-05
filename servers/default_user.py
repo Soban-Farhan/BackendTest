@@ -10,8 +10,8 @@ class TestAPIUser:
         Method is used to set TestAPIUser token property 
         used for Basic Authentication
 
-        :param username:
-        :param password:
+        :param: usernae
+        :param: password
         :rtype: str
         """
         self.basic_token = base64.b64encode(

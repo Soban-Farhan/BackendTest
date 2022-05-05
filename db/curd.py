@@ -32,7 +32,7 @@ def create_recipe_query(data):
     Creates a new recipe record using the request data 
     sent from postman
 
-    :param data:
+    :param: data
     :rtype: dict, Liteal
     """
 
@@ -49,16 +49,20 @@ def update_recipe_query(data):
     Updates all fields of recipes row where the 
     provided id matches.
 
-    :param data:
+    :param: data
     :rtype: dict, Liteal
     """
-
-    curr.execute("UPDATE recipes SET name=?, pre_time=?, difficulty=?, vegetarian=? WHERE id=?",
-                    (data['name'], data['pre_time'], data['difficulty'], data['vegetarian'], data['id']))
-    conn.commit()
-
-    status = 200
-    return RECIPE_UPDATED, status
+    recipes = fetch_all_recipes_query()
+    for recipe in recipes:
+        if recipe['id'] == int(data['id']):
+            curr.execute("UPDATE recipes SET name=?, pre_time=?, difficulty=?, vegetarian=? WHERE id=?",
+                            (data['name'], data['pre_time'], data['difficulty'], data['vegetarian'], data['id']))
+            conn.commit()
+            status = 200
+            return RECIPE_UPDATED, status
+    
+    status = 400
+    return DATA_NOT_FOUND, status
 
 
 def delete_recipe_query(data):
@@ -66,14 +70,15 @@ def delete_recipe_query(data):
     Deletes an existing record from db where the 
     provided id matches.
 
-    :param data:
+    :param: data
     :rtype: dict, Liteal
     """
 
     recipes = fetch_all_recipes_query()
     for recipe in recipes:
         if recipe['id'] == int(data['id']):
-            curr.execute("DELETE FROM recipes where id=?", (data['id'],))
+            curr.execute("DELETE FROM recipe_rating WHERE recipe_id=?;", (data['id'],) )
+            curr.execute("DELETE FROM recipes WHERE id=?", (data['id'], ))
             conn.commit()
             status = 200
             return RECIPE_DELETED, status
@@ -87,7 +92,7 @@ def recipe_rating_query(data):
     Creates a new rating record using request data 
     for an existing parent recipe record 
 
-    :param data:
+    :param: data
     :rtype: dict, Liteal
     """
 

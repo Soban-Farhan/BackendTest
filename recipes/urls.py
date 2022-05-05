@@ -26,10 +26,10 @@ def get_path(url, request, data=None, authentication=None):
     Get(): Gets a single Recipes using id
     Delete(): Deletes a Recipes record using id
 
-    :param url:
-    :param request:
-    :param data:
-    :param authentication:
+    :param: url
+    :param: request
+    :param: data
+    :param: authentication
 
     :rtype: dict, Liteal
     """
@@ -93,10 +93,11 @@ def post_path(url, request, data=None, authentication=None):
     Create(): Create new Recipe or Rating 
     depending on url request
 
-    :param url:
-    :param request:
-    :param data:
-    :param authentication:
+    :param: url
+    :param: request
+    :param: data
+    :param: authentication
+
 
     :rtype: dict, Liteal
     """
@@ -143,10 +144,10 @@ def put_patch_path(url, request, data=None, authentication=None):
     Update(): Update an existing record of Recipe where 
     id is the same from request
 
-    :param url:
-    :param request:
-    :param data:
-    :param authentication:
+    :param: url
+    :param: request
+    :param: data
+    :param: authentication
 
     :rtype: dict, Liteal
     """
