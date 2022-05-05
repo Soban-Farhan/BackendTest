@@ -1,6 +1,8 @@
 import json
 from http.server import BaseHTTPRequestHandler
 from recipes.urls import get_path, post_path, put_patch_path
+from servers.status import *
+from settings.responses import *
 
 
 class HttpHandler(BaseHTTPRequestHandler):
@@ -22,7 +24,13 @@ class HttpHandler(BaseHTTPRequestHandler):
     # Post method for our HttpHandler
     def do_POST(self):
         data_string = self.rfile.read(int(self.headers.get('Content-Length')))
-        data = json.loads(data_string)
+        
+        # Validate request body
+        try:
+            data = json.loads(data_string)
+        except ValueError:
+            return self.respond(HTTP_400_BAD_REQUEST, JSON_NOT_VALID)
+
         status, response = post_path(
             url=self.path,
             request=self.command,
@@ -30,14 +38,20 @@ class HttpHandler(BaseHTTPRequestHandler):
             data=data,
         )
         self.respond(status, response)
-
+        
     # Delete method for our HttpHandler
     do_DELETE = do_GET
 
     # PUT method for our HttpHandler
     def do_PUT(self):
         data_string = self.rfile.read(int(self.headers.get('Content-Length')))
-        data = json.loads(data_string)
+
+        # Validate request body
+        try:
+            data = json.loads(data_string)
+        except ValueError:
+            return self.respond(HTTP_400_BAD_REQUEST, JSON_NOT_VALID)
+
         status, response = put_patch_path(
             url=self.path,
             request=self.command,
