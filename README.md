@@ -2,7 +2,7 @@
 This is really simple (not simple) REST API made for a Backend Developer Assingnment
 
 ### What to do?
-Currently the project is only setup to use python virtualenv
+Currently the project is only setup to use python virtualenv.
 Please follow all the instructions carefully:
 
 #### Setup Virtualenv method
@@ -14,12 +14,13 @@ Please follow all the instructions carefully:
 pip install -r requirements.txt
 ```
 
-4. Run the following command to setup the Recipe and Recipe Rating table with mockdata avaiable in db folder.
+4. Run the following command to setup the Recipe and Recipe Rating table with mockdata avaiable in db folder. 
+The program will create a sqllite3 file in the same folder for database crud opertions
 ```bash
 python db_table_creation.py
 ```
 
-`Don't command will also work on your root environments but, I highly recommend using a virtual environment.`
+- These command will also work on your root environments but, I highly recommend using a virtual environment.
 
 
 5. Project consists of static urls mentioned in the assignments file.
@@ -40,6 +41,6 @@ username: test
 password: password
 ``` 
 
-if you want to change. Go to servers folder and open default_user.py file. Find basic_auth_token function end of the `servers.default_user.py` and change username and password too
+If you want to change these credetials. Go to servers folder and open default_user.py file. Find `basic_auth_token()` function end of the `servers.default_user.py` and change username and password too
 
 7. The program should run and we should be good for grading the assignment. 
