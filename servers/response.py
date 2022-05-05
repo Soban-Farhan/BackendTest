@@ -7,9 +7,9 @@ class Response:
         Sets class properties when 
         the class is created
 
-        :param self:
-        :param status:
-        :param data:
+        :param: self
+        :param: status
+        :param: data
         """
         self.status = status
         self.data = data
@@ -20,9 +20,9 @@ class Response:
         Returns response data in a serialized
         form with an appropriate status code
 
-        :param self:
-        :param status:
-        :param data:
+        :param: self
+        :param: status
+        :param: data
         """
         serializer = json.dumps(self.data)
 
