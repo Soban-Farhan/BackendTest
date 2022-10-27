@@ -8,15 +8,18 @@ Note: Making this Repo public as it maybe useful for some to study or even refer
 Currently the project is only setup to use python virtualenv.
 Please follow all the instructions carefully:
 
+
 #### Setup Virtualenv method
 
 1. Please download `Python 3.10.4` from [here](https://www.python.org/ftp/python/3.10.4/python-3.10.4-amd64.exe)
-2. Please follow all instruction from [Python venv: How To Create, Activate, Deactivate, And Delete](https://python.land/virtual-environments/virtualenv)
-3. Activate your newly create env and run the following command
-```bash
-pip install -r requirements.txt
+2. ~~Please follow all instruction from [Python venv: How To Create, Activate, Deactivate, And Delete](https://python.land/virtual-environments/virtualenv)~~
+3. ~~Activate your newly create env and run the following command~~
+
+```
+Note: Don't need the stuff above as I'm built different. The code utilizes all liberaries available in python v3.10.4.
 ```
 
+<br/>
 4. Run the following command to setup the Recipe and Recipe Rating table with mockdata avaiable in db folder. 
 The program will create a sqllite3 file in the same folder for database crud opertions
 ```code
