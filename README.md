@@ -1,6 +1,9 @@
 ## Backend Developer Test
 This is really simple (not simple) REST API made for a Backend Developer Assingnment
 
+```
+Note: Making this Repo public as it maybe useful for some to study or even reference.
+```
 ### What to do?
 Currently the project is only setup to use python virtualenv.
 Please follow all the instructions carefully:
