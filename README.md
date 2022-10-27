@@ -19,7 +19,7 @@ Please follow all the instructions carefully:
 Note: Don't need the stuff above as I'm built different. The code utilizes all liberaries available in python v3.10.4.
 ```
 
-<br/>
+
 4. Run the following command to setup the Recipe and Recipe Rating table with mockdata avaiable in db folder. 
 The program will create a sqllite3 file in the same folder for database crud opertions
 ```code
